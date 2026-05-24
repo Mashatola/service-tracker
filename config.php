@@ -1,13 +1,14 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "service_tracker";
+$host = getenv("MYSQLHOST");
+$user = getenv("MYSQLUSER");
+$pass = getenv("MYSQLPASSWORD");
+$db   = getenv("MYSQLDATABASE");
+$port = getenv("MYSQLPORT");
 
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
 
-if (!$conn) {
+if(!$conn){
     die("Database connection failed: " . mysqli_connect_error());
 }
 ?>
